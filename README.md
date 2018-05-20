@@ -27,7 +27,8 @@ Grant Type：
 ### 测试链接
 * http://localhost:8080/uaa/oauth/token?grant_type=client_credentials&client_id=client_1&client_secret=secret_1&scope=xx
 * http://localhost:9999/oauth/token?grant_type=client_credentials&client_id=client_1&client_secret=secret_1&scope=xx
-
+* http://localhost:8080/order/queryDemo?access_token=b81fa12a-7823-499f-b92c-4fdcf4965b30
+* http://localhost:8080/order/queryOrder?access_token=b81fa12a-7823-499f-b92c-4fdcf4965b30
 
 ### 1.基础环境
 

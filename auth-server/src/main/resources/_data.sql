@@ -1,5 +1,5 @@
 INSERT INTO "public"."sys_authority" VALUES ('2', 'wyf', '\254\355\000\005sr\000\015java.time.Ser\225]\204\272\033"H\262\014\000\000xpw\015\002\000\000\000\000Y@\257A\020\277\270@x', null, '\254\355\000\005sr\000\015java.time.Ser\225]\204\272\033"H\262\014\000\000xpw\015\002\000\000\000\000Y@\257A\020\277\270@x', '查看demo', 'query-demo');
-
+INSERT INTO "public"."sys_authority" VALUES ('3', 'wyf', '\254\355\000\005sr\000\015java.time.Ser\225]\204\272\033"H\262\014\000\000xpw\015\002\000\000\000\000Y@\257A\020\277\270@x', null, '\254\355\000\005sr\000\015java.time.Ser\225]\204\272\033"H\262\014\000\000xpw\015\002\000\000\000\000Y@\257A\020\277\270@x', '查看order', 'query-order');
 
 
 INSERT INTO "public"."sys_role" VALUES ('3', 'wyf', '\254\355\000\005sr\000\015java.time.Ser\225]\204\272\033"H\262\014\000\000xpw\015\002\000\000\000\000Y@\257A\025V\245\200x', null, '\254\355\000\005sr\000\015java.time.Ser\225]\204\272\033"H\262\014\000\000xpw\015\002\000\000\000\000Y@\257A\025V\245\200x', '管理员', 'ROLE_ADMIN');
@@ -7,7 +7,7 @@ INSERT INTO "public"."sys_role" VALUES ('4', 'wyf', '\254\355\000\005sr\000\015j
 
 
 INSERT INTO "public"."sys_role_authorities" VALUES ('3', '2');
-
+INSERT INTO "public"."sys_role_authorities" VALUES ('3', '3');
 
 
 

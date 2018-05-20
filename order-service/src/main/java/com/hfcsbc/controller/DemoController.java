@@ -9,9 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class DemoController {
-    @GetMapping("/demo")
-    @PreAuthorize("hasAuthority('query-order')")
+
+    //需要系统级认证
+    @GetMapping("/queryDemo")
     public String getDemo(){
-        return "order service";
+        return "demo";
+    }
+
+    //需要用户级认证
+    @GetMapping("/queryOrder")
+    @PreAuthorize("hasAuthority('query-order')")
+    public String getOrder(){
+        return "order";
     }
 }
