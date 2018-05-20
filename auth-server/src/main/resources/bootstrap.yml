@@ -6,6 +6,7 @@ spring:
 
   jpa:
     open-in-view: true
+#    database: MYSQL
     database: POSTGRESQL
     show-sql: true
     hibernate:
@@ -16,6 +17,12 @@ spring:
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
+#  datasource:
+#    platform: mysql
+#    url: jdbc:mysql://127.0.0.1:3307/user
+#    username: root
+#    password: root
+#    driver-class-name: com.mysql.jdbc.Driver
   redis:
     host: 127.0.0.1
 
