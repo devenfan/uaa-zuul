@@ -10,29 +10,17 @@
         <relativePath>../parent</relativePath>
     </parent>
 
-	<artifactId>order-service</artifactId>
+    <artifactId>demo-service</artifactId>
     <packaging>jar</packaging>
 
-	<name>${project.artifactId}</name>
+    <name>${project.artifactId}</name>
 
     <dependencies>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-security</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-oauth2</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>com.hfcsbc</groupId>
             <artifactId>uaa-zuul-common</artifactId>
             <version>${project.version}</version>
         </dependency>
-
     </dependencies>
 
     <build>

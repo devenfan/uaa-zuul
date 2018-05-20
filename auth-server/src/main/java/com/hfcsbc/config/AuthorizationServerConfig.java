@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -36,11 +37,15 @@ import java.security.KeyPair;
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
+
     @Autowired
     private AuthenticationManager authenticationManager;
+
     @Autowired
     private RedisConnectionFactory connectionFactory;
 
+    @Autowired
+    private UserDetailsService userDetailsService;
 
     @Bean
     public RedisTokenStore tokenStore() {
@@ -54,13 +59,22 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .authenticationManager(authenticationManager)
                 .userDetailsService(userDetailsService)//若无，refresh_token会有UserDetailsService is required错误
                 .tokenStore(tokenStore());
+
+        //允许 GET、POST 请求获取 token，即访问端点：oauth/token
+        endpoints.allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST);
+        endpoints.reuseRefreshTokens(true);
     }
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        security
-                .tokenKeyAccess("permitAll()")
-                .checkTokenAccess("isAuthenticated()");
+        //允许表单认证(很重要，可避免http basic验证对/oauth/token的拦截)
+        security.allowFormAuthenticationForClients();
+
+//        security.tokenKeyAccess("isAnonymous()");
+//        security.checkTokenAccess("isAnonymous()");
+
+        security.tokenKeyAccess("permitAll()");
+        security.checkTokenAccess("isAuthenticated()");
     }
 
     @Override
@@ -73,6 +87,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
             .and()
                 .withClient("webapp")
                 .scopes("xx")
-                .authorizedGrantTypes("implicit");
+                .authorizedGrantTypes("implicit")
+                .and()
+            .withClient("client_1")
+                .scopes("xx")
+                .secret("secret_1")
+                .authorizedGrantTypes("client_credentials")
+        ;
     }
 }

@@ -23,6 +23,12 @@ Grant Type：
 - `Resource Owner Password Credentials(password)`:应用直接都是受信任的(都是由一家公司开发的，本例子使用)
 - `Client Credentials`:用在应用API访问。
 
+
+### 测试链接
+* http://localhost:8080/uaa/oauth/token?grant_type=client_credentials&client_id=client_1&client_secret=secret_1&scope=xx
+* http://localhost:9999/oauth/token?grant_type=client_credentials&client_id=client_1&client_secret=secret_1&scope=xx
+
+
 ### 1.基础环境
 
 使用`Postgres`作为账户存储，`Redis`作为`Token`存储，使用`docker-compose`在服务器上启动`Postgres`和`Redis`。
@@ -451,3 +457,4 @@ public class RevokeTokenEndpoint {
 
 #### 6.2 注销请求方式
 ![](https://raw.githubusercontent.com/wiselyman/uaa-zuul/master/images/logout.png)
+

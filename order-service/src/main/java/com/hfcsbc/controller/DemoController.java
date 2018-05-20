@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DemoController {
     @GetMapping("/demo")
-    @PreAuthorize("hasAuthority('query-demo')")
+    @PreAuthorize("hasAuthority('query-order')")
     public String getDemo(){
-        return "good";
+        return "order service";
     }
 }

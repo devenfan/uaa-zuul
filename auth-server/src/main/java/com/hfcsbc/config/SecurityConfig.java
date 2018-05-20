@@ -29,8 +29,6 @@ import javax.servlet.http.HttpServletResponse;
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-
-
     @Bean
     public UserDetailsService userDetailsService(){
         return new DomainUserDetailsService();
@@ -60,6 +58,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        // @formatter:off
+        http
+                .requestMatchers()
+                .anyRequest()
+//            .and()
+//                .anonymous()
+            .and()
+                .authorizeRequests()
+                .antMatchers("/oauth/*")
+                .permitAll()
+        ;
+        // @formatter:on
+    }
 
 }

@@ -15,7 +15,7 @@ INSERT INTO "public"."sys_user" VALUES ('5', 'wyf', '\254\355\000\005sr\000\015j
 INSERT INTO "public"."sys_user" VALUES ('6', 'wyf', '\254\355\000\005sr\000\015java.time.Ser\225]\204\272\033"H\262\014\000\000xpw\015\002\000\000\000\000Y@\257A \021:\200x', null, '\254\355\000\005sr\000\015java.time.Ser\225]\204\272\033"H\262\014\000\000xpw\015\002\000\000\000\000Y@\257A \021:\200x', null, null, null, null, '$2a$10$WjApX3bMw1KfzckGCCOB.eXRNY61ZcwsqpNzc2yiHtjsqnS3LmXAS', 'wyf');
 
 
-BEGIN;
+
 INSERT INTO "public"."sys_user_roles" VALUES ('5', '3');
 INSERT INTO "public"."sys_user_roles" VALUES ('6', '4');
 
