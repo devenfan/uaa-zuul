@@ -6,23 +6,23 @@ spring:
 
   jpa:
     open-in-view: true
-#    database: MYSQL
-    database: POSTGRESQL
+    database: MYSQL
+#    database: POSTGRESQL
     show-sql: true
     hibernate:
       ddl-auto: update
-  datasource:
-    platform: postgres
-    url: jdbc:postgresql://127.0.0.1:5432/auth
-    username: postgres
-    password: postgres
-    driver-class-name: org.postgresql.Driver
 #  datasource:
-#    platform: mysql
-#    url: jdbc:mysql://127.0.0.1:3307/user
-#    username: root
-#    password: root
-#    driver-class-name: com.mysql.jdbc.Driver
+#    platform: postgres
+#    url: jdbc:postgresql://127.0.0.1:5432/user
+#    username: postgres
+#    password: postgres
+#    driver-class-name: org.postgresql.Driver
+  datasource:
+    platform: mysql
+    url: jdbc:mysql://127.0.0.1:3306/user
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
   redis:
     host: 127.0.0.1
 

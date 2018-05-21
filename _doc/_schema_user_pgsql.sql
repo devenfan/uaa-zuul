@@ -15,13 +15,13 @@ CACHE 1;
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."sys_authority";
 CREATE TABLE "public"."sys_authority" (
-  "id" int8 NOT NULL DEFAULT NULL,
-  "created_by" varchar(50) COLLATE "pg_catalog"."default" NOT NULL DEFAULT NULL,
-  "created_date" bytea NOT NULL DEFAULT NULL,
-  "last_modified_by" varchar(50) COLLATE "pg_catalog"."default" DEFAULT NULL,
-  "last_modified_date" bytea DEFAULT NULL,
-  "name" varchar(255) COLLATE "pg_catalog"."default" DEFAULT NULL,
-  "value" varchar(255) COLLATE "pg_catalog"."default" DEFAULT NULL
+  "id" int8 NOT NULL,
+  "created_by" varchar(50) COLLATE "pg_catalog"."default" NOT NULL,
+  "created_date" timestamp(6) NOT NULL,
+  "last_modified_by" varchar(50) COLLATE "pg_catalog"."default",
+  "last_modified_date" timestamp(6),
+  "name" varchar(255) COLLATE "pg_catalog"."default",
+  "value" varchar(255) COLLATE "pg_catalog"."default"
 )
 ;
 
@@ -30,13 +30,13 @@ CREATE TABLE "public"."sys_authority" (
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."sys_role";
 CREATE TABLE "public"."sys_role" (
-  "id" int8 NOT NULL DEFAULT NULL,
-  "created_by" varchar(50) COLLATE "pg_catalog"."default" NOT NULL DEFAULT NULL,
-  "created_date" bytea NOT NULL DEFAULT NULL,
-  "last_modified_by" varchar(50) COLLATE "pg_catalog"."default" DEFAULT NULL,
-  "last_modified_date" bytea DEFAULT NULL,
-  "name" varchar(255) COLLATE "pg_catalog"."default" DEFAULT NULL,
-  "value" varchar(255) COLLATE "pg_catalog"."default" DEFAULT NULL
+  "id" int8 NOT NULL,
+  "created_by" varchar(50) COLLATE "pg_catalog"."default" NOT NULL,
+  "created_date" timestamp(6) NOT NULL,
+  "last_modified_by" varchar(50) COLLATE "pg_catalog"."default",
+  "last_modified_date" timestamp(6),
+  "name" varchar(255) COLLATE "pg_catalog"."default",
+  "value" varchar(255) COLLATE "pg_catalog"."default"
 )
 ;
 
@@ -45,8 +45,8 @@ CREATE TABLE "public"."sys_role" (
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."sys_role_authorities";
 CREATE TABLE "public"."sys_role_authorities" (
-  "sys_role_id" int8 NOT NULL DEFAULT NULL,
-  "authorities_id" int8 NOT NULL DEFAULT NULL
+  "sys_role_id" int8 NOT NULL,
+  "authorities_id" int8 NOT NULL
 )
 ;
 
@@ -55,17 +55,17 @@ CREATE TABLE "public"."sys_role_authorities" (
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."sys_user";
 CREATE TABLE "public"."sys_user" (
-  "id" int8 NOT NULL DEFAULT NULL,
-  "created_by" varchar(50) COLLATE "pg_catalog"."default" NOT NULL DEFAULT NULL,
-  "created_date" bytea NOT NULL DEFAULT NULL,
-  "last_modified_by" varchar(50) COLLATE "pg_catalog"."default" DEFAULT NULL,
-  "last_modified_date" bytea DEFAULT NULL,
-  "email" varchar(100) COLLATE "pg_catalog"."default" DEFAULT NULL,
-  "first_name" varchar(50) COLLATE "pg_catalog"."default" DEFAULT NULL,
-  "image_url" varchar(256) COLLATE "pg_catalog"."default" DEFAULT NULL,
-  "last_name" varchar(50) COLLATE "pg_catalog"."default" DEFAULT NULL,
-  "password" varchar(60) COLLATE "pg_catalog"."default" NOT NULL DEFAULT NULL,
-  "username" varchar(50) COLLATE "pg_catalog"."default" NOT NULL DEFAULT NULL
+  "id" int8 NOT NULL,
+  "created_by" varchar(50) COLLATE "pg_catalog"."default" NOT NULL,
+  "created_date" timestamp(6) NOT NULL,
+  "last_modified_by" varchar(50) COLLATE "pg_catalog"."default",
+  "last_modified_date" timestamp(6),
+  "email" varchar(100) COLLATE "pg_catalog"."default",
+  "first_name" varchar(50) COLLATE "pg_catalog"."default",
+  "image_url" varchar(256) COLLATE "pg_catalog"."default",
+  "last_name" varchar(50) COLLATE "pg_catalog"."default",
+  "password" varchar(60) COLLATE "pg_catalog"."default" NOT NULL,
+  "username" varchar(50) COLLATE "pg_catalog"."default" NOT NULL
 )
 ;
 
@@ -74,8 +74,8 @@ CREATE TABLE "public"."sys_user" (
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."sys_user_roles";
 CREATE TABLE "public"."sys_user_roles" (
-  "sys_user_id" int8 NOT NULL DEFAULT NULL,
-  "roles_id" int8 NOT NULL DEFAULT NULL
+  "sys_user_id" int8 NOT NULL,
+  "roles_id" int8 NOT NULL
 )
 ;
 
