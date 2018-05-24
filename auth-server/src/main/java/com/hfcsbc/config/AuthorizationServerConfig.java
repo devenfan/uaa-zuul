@@ -74,7 +74,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 //        security.checkTokenAccess("isAnonymous()");
 
         security.tokenKeyAccess("permitAll()");
-        security.checkTokenAccess("isAuthenticated()");
+        security.checkTokenAccess("permitAll()");
+//        security.checkTokenAccess("isAuthenticated()");
     }
 
     @Override
